@@ -8,24 +8,15 @@ import org.springframework.stereotype.Component;
     public class Person
     {
         @Id
-        private String name;
         private String email;
         private String password;
 
         public Person(){}
 
-        public Person(String name, String email, String password) {
-            this.name = name;
+        public Person(String email, String password) {
+           // this.name = name;
             this.email = email;
             this.password = password;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
         }
 
         public String getEmail() {
