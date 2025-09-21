@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/person")
 public class PersonController {
 
     private final UserService service;
@@ -23,7 +23,7 @@ public class PersonController {
         return service.register(person);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public String login(@RequestBody Map<String, String> map) {
         return service.login(map);
     }
