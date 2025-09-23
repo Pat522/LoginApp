@@ -4,7 +4,6 @@ import com.example.tele.LoginApp.model.Person;
 import com.example.tele.LoginApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
 
 @RestController

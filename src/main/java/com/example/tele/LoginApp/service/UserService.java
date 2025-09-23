@@ -5,7 +5,6 @@ import com.example.tele.LoginApp.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.Map;
 
 @Service
@@ -26,14 +25,22 @@ public class UserService {
     }
 
     public String login(Map<String, String> map) {
-        Person person = repo.findByEmailAndPassword (map.get("email"), map.get("password")).orElse(null);
-        if (person == null)
+        String email = map.get("email");
+        String password = map.get("password");
+
+        Person person = repo.findByEmail(email).orElse(null);
+       if (person == null)
         {
-            return "Email or password is incorrect";
+            return " Email is incorrect";
         }
-        return "User logged successfully, welcome to Santosh";
+        if (!person.getPassword().equals(password)) {
+            return "Password is incorrect";
+        }
+        return "User logged in successfully, welcome to Santosh" ;
     }
 }
+
+
 
 
 
